@@ -1,44 +1,44 @@
 // Task 1
 fetch("https://api.github.com/users/akshadac").then((response) => response.json())
-.then(users => {
-   console.log(users.public_repos)
-   console.log(users.followers);
-});
+    .then(users => {
+        console.log(users.public_repos)
+        console.log(users.followers);
+    });
 
 fetch("https://api.github.com/users/akshadac/followers").then((response) => response.json())
-.then(users => {
-    users.forEach((user) => {console.log(user.id)})
-   });
+    .then(users => {
+        users.forEach((user) => {
+            console.log(user.id)
+        })
+    });
 
 //Task 2
 //q1
 fetch("https://jsonplaceholder.typicode.com/comments")
     .then((response) => response.json())
     .then(comments => {
-        // how many users we have
         console.log(comments.length);
     });
 //q2
 fetch("https://jsonplaceholder.typicode.com/photos")
     .then((response) => response.json())
     .then(photos => {
-        // how many users we have
         console.log(photos.length);
     });
 //q3
 fetch("https://jsonplaceholder.typicode.com/users")
-     .then((response) => response.json())
-     .then(users1 => {
-         users1.forEach((user1) => {
+    .then((response) => response.json())
+    .then(users1 => {
+        users1.forEach((user1) => {
             console.log(user1.name + " , " + user1.email);
         });
     });
 //q4
 fetch("https://jsonplaceholder.typicode.com/users")
-     .then((response) => response.json())
-     .then(users2 => {
-         users2.forEach((user2) => {
-            console.log(user2.name + " , " +  user2.address.city ) ;
+    .then((response) => response.json())
+    .then(users2 => {
+        users2.forEach((user2) => {
+            console.log(user2.name + " , " + user2.address.city);
         });
     });
 //q5 
@@ -57,5 +57,8 @@ fetch("https://jsonplaceholder.typicode.com/todos?completed=false")
     });
 //q7
 
+
 //q8
 fetch("https://jsonplaceholder.typicode.com/albums?title=quidem%20molestiae%20enim")
+    .then((response) => response.json())
+    .then(user => {console.log(user.userId)})
