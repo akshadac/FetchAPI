@@ -48,7 +48,7 @@ fetch("https://jsonplaceholder.typicode.com/todos?completed=true")
         console.log(todo.length)
     });
 //q6
-fetch("https://jsonplaceholder.typicode.com/todos?completed=false")
+fetch("https://jsonplaceholder.typicode.com/todos?completed=true")
     .then((response) => response.json())
     .then(todo1 => {
         todo1.forEach((todo11) => {
@@ -56,6 +56,24 @@ fetch("https://jsonplaceholder.typicode.com/todos?completed=false")
         })
     });
 //q7
+fetch("https://jsonplaceholder.typicode.com/todos")
+    .then((response) => response.json())
+    .then((todos) => {
+        todos.forEach((mytodo) => {
+            if (mytodo.completed === false) {
+                let todoids = mytodo.userId
+                fetch("https://jsonplaceholder.typicode.com/users")
+                    .then((response) => response.json())
+                    .then((users) => {
+                        users.forEach((user) => {
+                            if (user.id === todoids){
+                                console.log(user.name)
+                            }
+                        })
+                    })
+        }
+    });
+});
 
 //q8
 fetch("https://jsonplaceholder.typicode.com/albums")
@@ -63,7 +81,7 @@ fetch("https://jsonplaceholder.typicode.com/albums")
     .then((albums) => {
         albums.forEach((album) => {
             if (album.title === "quidem molestiae enim") {
-                let ids = album.id
+                let ids = album.userId
                 fetch("https://jsonplaceholder.typicode.com/users")
                     .then((response) => response.json())
                     .then((users) => {
